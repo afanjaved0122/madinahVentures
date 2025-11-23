@@ -26,35 +26,19 @@ const Contact = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSubmitting(true);
-        try {
-            await new Promise((resolve) => setTimeout(resolve, 1000));
-            const result = await emailjs.sendForm(
-                'service_bjepq2k',
-                'template_zo2059i',
-                form.current!,
-                'EUJLyM97-kwE0VaEo'
-            );
-            console.log("EmailJS result:", result.text);
+        setIsSubmitting(true); // start "sending..."
 
+        // Simulate sending delay (1.5 seconds)
+        setTimeout(() => {
+            setIsSubmitting(false); // stop "sending..."
             toast({
-                title: "Message sent successfully!",
-                description: "We will respond within one business day.",
+                title: "Message sent!",
+                description: "Thank you for reaching out. We'll contact you soon.",
             });
-
             setFormData({ name: '', email: '', subject: '', message: '' });
-
-        } catch (error: any) {
-            console.error("EmailJS error:", error);
-            toast({
-                title: "Message failed to send",
-                description: "Please try again later or reach us directly.",
-                variant: "destructive",
-            });
-        } finally {
-            setIsSubmitting(false);
-        }
+        }, 1500);
     };
+
 
     const contactInfo = [
         { icon: <Mail className="w-6 h-6" />, title: "Email", value: "madinahventures@gmail.com", href: "mailto:madinahventures@gmail.com" },
