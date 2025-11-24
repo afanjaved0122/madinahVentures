@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import logo from '../assets/images/madinah.png';
-
+import logoWhite from '../assets/images/logo-white.png'
 const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
 
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
                         className="flex-1"
                     >
                         <h3 className="text-3xl font-bold mb-4">
-                            <img src={logo} alt="Madinah Ventures Logo" style={{ width: '180px' }} />
+                            <img src={logoWhite} alt="Madinah Ventures Logo" style={{ width: '180px' }} />
                         </h3>
                         <p className="text-gray-300 mb-6 leading-relaxed">
                             We craft modern digital solutions that empower businesses to grow, innovate, and thrive online.

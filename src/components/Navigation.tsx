@@ -8,6 +8,10 @@ import { Button } from "@/components/ui/button";
 
 import madinahLogog from '../assets/images/madinah.png'
 
+
+import logoBlack from '../assets/images/logo-black.png'
+import logoWhite from '../assets/images/logo-white.png'
+
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -64,9 +68,13 @@ const Navigation = () => {
                         whileHover={{ scale: 1.05 }}
                         className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent"
                     >
-                        {/* <img src={isScrolled ? CodinitiLogoDark : CodinitiLogo} alt="Logo" className="h-8 w-auto" /> */}
-                        <img src={isScrolled ? madinahLogog : madinahLogog} alt="Logo" className="h-8 w-auto" />
+                        <img
+                            src={isScrolled ? logoBlack : logoWhite}
+                            alt="Logo"
+                            className="h-12 w-50 mt-2"  
+                        />
                     </motion.div>
+
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-8">
