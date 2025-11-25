@@ -39,7 +39,7 @@ const Index = () => {
         <div className="relative">
             {/* Fixed Progress Bar at the very top */}
             <motion.div
-                className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-600 to-red-600 origin-[0%] z-[100]"
+                className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-blue-600 origin-[0%] z-[100]"
                 style={{ scaleX }}
             />
 
