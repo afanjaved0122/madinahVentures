@@ -29,11 +29,10 @@ const Navigation = () => {
         console.log("Scrolling to section:", sectionId);
         setIsOpen(false); // Close menu first
 
-        // Small delay to allow menu to close
         setTimeout(() => {
             const element = document.getElementById(sectionId);
             if (element) {
-                const navHeight = 64; // Height of the navigation bar
+                const navHeight = 64; 
                 const elementPosition = element.offsetTop - navHeight;
                 window.scrollTo({
                     top: elementPosition,
@@ -59,8 +58,8 @@ const Navigation = () => {
         <motion.nav
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100" : "bg-transparent"}`}
-        >
+            className={`fixed top-0 left-0 right-0 z-50 overflow-x-hidden transition-all duration-300 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100" : "bg-transparent"}`}
+            >
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}

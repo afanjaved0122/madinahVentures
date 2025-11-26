@@ -35,8 +35,34 @@ const Index = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
+    const [isScrolledDown, setIsScrolledDown] = useState(false);
+    const [lastScroll, setLastScroll] = useState(0);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const currentScroll = window.scrollY;
+  
+        if (currentScroll > lastScroll && currentScroll > 100) {
+          // scrolling down and scrolled at least 100px
+          setIsScrolledDown(true);
+        } else {
+          setIsScrolledDown(false);
+        }
+  
+        setLastScroll(currentScroll);
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScroll]);
+  
+    // const scrollToTop = () => {
+    //   window.scrollTo({ top: 0, behavior: "smooth" });
+    // };
+
     return (
-        <div className="relative">
+
+        <div className="relative  overflow-x-hidden">
             {/* Fixed Progress Bar at the very top */}
             <motion.div
                 className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-blue-600 origin-[0%] z-[100]"
@@ -62,11 +88,11 @@ const Index = () => {
             <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{
-                    opacity: isScrolled ? 1 : 0,
-                    scale: isScrolled ? 1 : 0
+                    opacity: isScrolledDown ? 1 : 0,
+                    scale: isScrolledDown ? 1 : 0,
                 }}
                 transition={{ duration: 0.3 }}
-                className="fixed bottom-4 right-20 z-40"
+                className="fixed bottom-4 z-40 left-1/2 transform -translate-x-1/2 md:right-20 md:left-auto md:translate-x-0"
             >
                 <Button
                     onClick={scrollToTop}
@@ -77,6 +103,7 @@ const Index = () => {
                 </Button>
             </motion.div>
         </div>
+        
     );
 };
 
